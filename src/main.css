@@ -1,0 +1,15 @@
+h1 {
+    height: 100vh;
+    display: flex;
+    color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+    font-size: 5em;
+    font-family: sans-serif;
+    text-shadow: 0 0 20;
+}
+
+body {
+    margin: 0;
+    background-color: #444;
+}
