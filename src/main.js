@@ -1,2 +1,4 @@
 require('./main.css');
-alert('hello thing');
+require('./index.html');
+
+console.log('from main.js');

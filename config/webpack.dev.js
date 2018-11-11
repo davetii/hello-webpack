@@ -11,7 +11,8 @@ module.exports = {
       publicPath: '/'
   },
   devServer: {
-      contentBase: 'dist'
+      contentBase: 'dist',
+      overlay: true
   },
   module: {
       rules: [
@@ -21,7 +22,25 @@ module.exports = {
                   { loader: 'style-loader'},
                   { loader: 'css-loader'}
               ]
+          },
+          {
+              test: /\.html$/,
+              use: [
+                  { loader: 'file-loader', options: {name: '[name].html'}},
+                  { loader: 'extract-loader'},
+                  { loader: 'html-loader',
+                      options: {
+                        attrs: ['img:src']
+                      }}
+              ]
+          },
+          {
+              test: /\.(jpg|gif|png)$/,
+              use: [
+                  { loader: 'file-loader', options: {name: 'images/[name].[ext]'}}
+              ]
           }
+
       ]
 
   }

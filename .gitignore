@@ -20,7 +20,7 @@
 /nbproject/private/
 /build/
 /nbbuild/
-/dist/*.js
+/dist/
 /nbdist/
 /.nb-gradle/
 /node_modules
