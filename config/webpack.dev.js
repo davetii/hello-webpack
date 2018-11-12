@@ -1,14 +1,13 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   entry: {
-      main: './src/main.js'
+      main: ['./src/main.js']
   },
   mode: 'development',
   output: {
       filename: '[name]-bundle.js',
-      path: path.resolve(__dirname, '../dist'),
-      publicPath: '/'
+      path: path.resolve(__dirname, '../dist')
   },
   devServer: {
       contentBase: 'dist',
@@ -16,6 +15,15 @@ module.exports = {
   },
   module: {
       rules: [
+          {
+            test:   /\.js$/,
+            exclude: /node_modules/,
+            use: [
+                {
+                    loader: 'babel-loader'
+                }
+            ]
+          },
           {
               test: /\.css$/,
               use: [
@@ -27,7 +35,7 @@ module.exports = {
               test: /\.html$/,
               use: [
                   { loader: 'file-loader', options: {name: '[name].html'}},
-                  { loader: 'extract-loader'},
+                  { loader: 'extract-loader', options: {publicPath: "../"}},
                   { loader: 'html-loader',
                       options: {
                         attrs: ['img:src']

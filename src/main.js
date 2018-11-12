@@ -1,4 +1,11 @@
+require("babel-runtime/regenerator")
 require('./main.css');
 require('./index.html');
 
-console.log('from main.js');
+const a = async args => {
+    const { a, b } = args;
+    await console.log("Hello from the future!", a, b);
+};
+
+a({ a: 1, b: 2 });
+
